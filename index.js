@@ -31,7 +31,7 @@ req.get('http://matrix.ntreis.net/Matrix/Public/Portal.aspx?ID=0-866322865-10#1'
       uri: 'https://geomap.ffiec.gov/FFIECGeocMap/GeocodeMap1.aspx/GetGeocodeData',
       json: true,
       body: {
-        sSingleLine: singleAddy + ' Plano, TX',
+        sSingleLine: singleAddy + ' Richardson, TX',
         iCensusYear: '2015'
       }
     }));
@@ -44,6 +44,7 @@ req.get('http://matrix.ntreis.net/Matrix/Public/Portal.aspx?ID=0-866322865-10#1'
         return house.d;
       });
 
+      console.log('extractedCInfo', extracted);
       extracted.forEach(function(h) {
         // Get the census data
         housesInfo.push(req({
@@ -81,7 +82,7 @@ req.get('http://matrix.ntreis.net/Matrix/Public/Portal.aspx?ID=0-866322865-10#1'
             console.log('matches', JSON.stringify(matches, null, 4));
           })
           .catch(function(err) {
-            // console.log('err', err);
+            console.log('err', err);
           })
       });
 
